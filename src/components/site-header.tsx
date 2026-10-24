@@ -3,13 +3,23 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Experience", to: "/experience" },
-  { label: "Projects", to: "/projects" },
-  { label: "Skills", to: "/skills" },
-  { label: "Contact", to: "/contact" },
-] as const;
+  { label: "Home" },
+  { label: "About" },
+  { label: "Experience" },
+  { label: "Projects" },
+  { label: "Skills" },
+  { label: "Contact" },
+];
+
+// Literal `to` values keep TanStack Router's type-safe links happy.
+const navLinks: Record<string, "/" | "/about" | "/experience" | "/projects" | "/skills" | "/contact"> = {
+  Home: "/",
+  About: "/about",
+  Experience: "/experience",
+  Projects: "/projects",
+  Skills: "/skills",
+  Contact: "/contact",
+};
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -29,8 +39,8 @@ export function SiteHeader() {
         <nav aria-label="Main navigation" className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (
             <Link
-              key={item.to}
-              to={item.to}
+              key={item.label}
+              to={navLinks[item.label]}
               className="rounded-full px-3.5 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-lavender-soft hover:text-lavender-deep"
               activeProps={{
                 className:
@@ -60,9 +70,9 @@ export function SiteHeader() {
         >
           <ul className="flex flex-col gap-1">
             {navItems.map((item) => (
-              <li key={item.to}>
+              <li key={item.label}>
                 <Link
-                  to={item.to}
+                  to={navLinks[item.label]}
                   className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-lavender-soft"
                   activeProps={{ className: "bg-lavender-soft text-lavender-deep" }}
                   onClick={() => setOpen(false)}

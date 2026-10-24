@@ -28,7 +28,7 @@ const categoryTones = [
   { chip: "bg-lavender-soft text-lavender-deep", bar: "bg-lavender" },
   { chip: "bg-teal-soft text-teal-deep", bar: "bg-teal" },
   { chip: "bg-primary text-primary-foreground", bar: "bg-primary" },
-  { chip: "bg-lavender text-white", bar: "bg-lavender-deep" },
+  { chip: "bg-lavender text-primary-foreground", bar: "bg-lavender-deep" },
 ];
 
 function SkillsPage() {
@@ -43,7 +43,7 @@ function SkillsPage() {
       <div className="mx-auto max-w-6xl px-5 pb-20 pt-12 sm:px-8">
         <div className="grid gap-6 sm:grid-cols-2">
           {skillCategories.map((category, index) => {
-            const tone = categoryTones[index % categoryTones.length];
+            const tone = categoryTones[index % categoryTones.length]!;
             return (
               <section key={category.title} className="card-soft p-6 sm:p-8">
                 <span className={`h-1.5 w-12 rounded-full ${tone.bar} block`} aria-hidden="true" />

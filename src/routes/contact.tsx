@@ -100,7 +100,7 @@ function ContactPage() {
                 </p>
               </div>
             </div>
-            <a href={contact.cvPath} download className="btn bg-lavender text-white hover:bg-lavender-soft hover:text-lavender-deep">
+            <a href={contact.cvPath} download className="btn bg-lavender text-primary-foreground hover:bg-lavender-soft hover:text-lavender-deep">
               <Download className="h-4 w-4" />
               Download CV
             </a>

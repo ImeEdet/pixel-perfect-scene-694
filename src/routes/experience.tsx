@@ -61,7 +61,7 @@ function ExperiencePage() {
                     className={
                       "chip " +
                       (item.current
-                        ? "bg-teal text-white"
+                        ? "bg-teal text-primary-foreground"
                         : "bg-lavender-soft text-lavender-deep")
                     }
                   >
