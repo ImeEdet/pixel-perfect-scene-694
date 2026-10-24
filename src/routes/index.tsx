@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Mail } from "lucide-react";
-import { profile } from "@/lib/content";
+import { profile, contact } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
