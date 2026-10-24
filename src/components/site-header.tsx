@@ -2,24 +2,14 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const navItems = [
-  { label: "Home" },
-  { label: "About" },
-  { label: "Experience" },
-  { label: "Projects" },
-  { label: "Skills" },
-  { label: "Contact" },
+const navItems: { label: string; to: "/" | "/about" | "/experience" | "/projects" | "/skills" | "/contact" }[] = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Experience", to: "/experience" },
+  { label: "Projects", to: "/projects" },
+  { label: "Skills", to: "/skills" },
+  { label: "Contact", to: "/contact" },
 ];
-
-// Literal `to` values keep TanStack Router's type-safe links happy.
-const navLinks: Record<string, "/" | "/about" | "/experience" | "/projects" | "/skills" | "/contact"> = {
-  Home: "/",
-  About: "/about",
-  Experience: "/experience",
-  Projects: "/projects",
-  Skills: "/skills",
-  Contact: "/contact",
-};
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -40,7 +30,7 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <Link
               key={item.label}
-              to={navLinks[item.label]}
+              to={item.to}
               className="rounded-full px-3.5 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-lavender-soft hover:text-lavender-deep"
               activeProps={{
                 className:
@@ -72,7 +62,7 @@ export function SiteHeader() {
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
-                  to={navLinks[item.label]}
+                  to={item.to}
                   className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-lavender-soft"
                   activeProps={{ className: "bg-lavender-soft text-lavender-deep" }}
                   onClick={() => setOpen(false)}

@@ -144,7 +144,7 @@ function Index() {
           <Link to="/projects" className="btn btn-primary">
             Browse Projects
           </Link>
-          <a href={`mailto:${profile.email}`} className="btn btn-outline">
+          <a href={`mailto:${contact.email}`} className="btn btn-outline">
             <Mail className="h-4 w-4" />
             Email Me
           </a>
